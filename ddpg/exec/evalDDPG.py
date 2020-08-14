@@ -10,6 +10,7 @@ logging.getLogger('tensorflow').setLevel(logging.ERROR)
 import gym
 import pandas as pd
 
+from functionTools.loadSaveModel import loadFromPickle
 from ddpg.src.ddpg_Lucy import *
 from ddpg.src.ddpg_martin import *
 
@@ -22,17 +23,12 @@ class EvaluateDDPG:
         env_name = 'MountainCarContinuous-v0'
         env = gym.make(env_name)
 
-        # if person == 'Lucy':
-        #     ddpgModel = LucyDDPG(self.hyperparamDict)
-        # elif person == 'Martin':
-        #     ddpgModel = MartinDDPG(self.hyperparamDict)
-        # else:
-        #     ddpgModel = PhilDDPG(self.hyperparamDict)
-
         if person == 'Lucy':
             ddpgModel = LucyDDPG(self.hyperparamDict)
-        else:
+        elif person == 'Martin':
             ddpgModel = MartinDDPG(self.hyperparamDict)
+        else:
+            ddpgModel = PhilDDPG(self.hyperparamDict)
 
         meanRewardList = ddpgModel(env)
 
@@ -67,7 +63,7 @@ def main():
     hyperparamDict['minibatchSize'] = 64
 
     hyperparamDict['gradNormClipValue'] = None
-    hyperparamDict['maxEpisode'] = 10# 300
+    hyperparamDict['maxEpisode'] = 5# 300
     hyperparamDict['maxTimeStep'] = 1000
     hyperparamDict['bufferSize'] = 1e5
 
@@ -92,8 +88,7 @@ def main():
     hyperparamDict['rewardSavePathMartin'] = os.path.join(rewardDir, fileName + '_Martin')
 
     independentVariables = dict()
-    # independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
-    independentVariables['person'] = ['Phil']
+    independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
     evaluateWolfSheepTrain = EvaluateDDPG(hyperparamDict)
 
     levelNames = list(independentVariables.keys())
@@ -114,6 +109,7 @@ def main():
     resultDF.T.plot.line()
     plt.savefig(os.path.join(evalResultDir, fileName))
     plt.show()
+
 
 if __name__ == '__main__':
     main()

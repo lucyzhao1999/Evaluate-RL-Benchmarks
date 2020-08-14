@@ -298,9 +298,7 @@ class TrainDDPGWithGym:
             for timeStep in range(self.maxTimeStep):
                 action = self.actOneStep(state, episodeID, self.noise)
                 nextState, reward, terminal, info = self.env.step(action)
-                if math.isnan(reward):
-                    print(state, action, nextState)
-                    break
+
                 nextState = nextState.reshape(1, -1)
                 self.memoryBuffer.add(state, action, reward, nextState)
                 epsReward += reward
