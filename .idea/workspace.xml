@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e5f2acb-409d-44e6-b196-0afea6c02bfd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/evalDDPG.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/exec/evalDDPG_ant.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/evalDDPG_ant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/results/models/checkpoint" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ddpg/src/ddpg_martin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/src/ddpg_martin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="254">
+              <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -29,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_halfCheetah.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="41" selection-start-line="41" selection-end-line="56" selection-end-column="37" />
+            <state relative-caret-position="155">
+              <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -38,8 +39,41 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_ant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-751">
-              <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+            <state relative-caret-position="329">
+              <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Lucy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="367" column="55" selection-start-line="367" selection-start-column="45" selection-end-line="367" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Phil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="451" column="34" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_martin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6233">
+              <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -58,10 +92,13 @@
       <find>session</find>
       <find>fixedParameters</find>
       <find>Writer</find>
-      <find>render</find>
       <find>done</find>
       <find>noise</find>
       <find>act</find>
+      <find>render</find>
+      <find>print</find>
+      <find>max</find>
+      <find>maxEpisode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -78,9 +115,10 @@
         <option value="$PROJECT_DIR$/ddpg/exec/Cheetah.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/Ant.py" />
         <option value="$PROJECT_DIR$/ddpg/src/ddpg_Lucy.py" />
-        <option value="$PROJECT_DIR$/ddpg/src/ddpg_martin.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evalDDPG.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py" />
+        <option value="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" />
+        <option value="$PROJECT_DIR$/ddpg/src/ddpg_martin.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evalDDPG_halfCheetah.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evalDDPG_ant.py" />
       </list>
@@ -157,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.execLucyDDPG">
+  <component name="RunManager" selected="Python.evalDDPG_ant">
     <configuration name="Ant" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Evaluate-RL-Benchmarks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,28 +218,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Cheetah" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Evaluate-RL-Benchmarks" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ddpg/exec" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/Cheetah.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="evalDDPG" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Evaluate-RL-Benchmarks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -216,6 +232,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="evalDDPG_ant" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Evaluate-RL-Benchmarks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ddpg/exec" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/evalDDPG_ant.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="evalDDPG_halfCheetah" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Evaluate-RL-Benchmarks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ddpg/exec" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/evalDDPG_halfCheetah.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -248,10 +308,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.execLucyDDPG" />
+        <item itemvalue="Python.evalDDPG_ant" />
+        <item itemvalue="Python.evalDDPG_halfCheetah" />
         <item itemvalue="Python.evalDDPG" />
+        <item itemvalue="Python.execLucyDDPG" />
         <item itemvalue="Python.Ant" />
-        <item itemvalue="Python.Cheetah" />
       </list>
     </recent_temporary>
   </component>
@@ -265,12 +326,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597340636609</updated>
-      <workItem from="1597340639297" duration="12797000" />
+      <workItem from="1597340639297" duration="14482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12797000" />
+    <option name="totallyTimeSpent" value="14482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -287,7 +348,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32996973" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12815338" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33501515" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39959636" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -306,8 +367,10 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$execLucyDDPG.coverage" NAME="execLucyDDPG Coverage Results" MODIFIED="1597365522269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
-    <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evalDDPG.coverage" NAME="evalDDPG Coverage Results" MODIFIED="1597365482259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
+    <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evalDDPG.coverage" NAME="evalDDPG Coverage Results" MODIFIED="1597590047101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$Ant.coverage" NAME="Ant Coverage Results" MODIFIED="1597354002853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
+    <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evalDDPG_ant.coverage" NAME="evalDDPG_ant Coverage Results" MODIFIED="1597590823890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
+    <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evalDDPG_halfCheetah.coverage" NAME="evalDDPG_halfCheetah Coverage Results" MODIFIED="1597590254286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$Cheetah.coverage" NAME="Cheetah Coverage Results" MODIFIED="1597353889613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
   </component>
   <component name="editorHistoryManager">
@@ -369,43 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Lucy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2150">
-          <caret line="365" column="54" lean-forward="true" selection-start-line="365" selection-start-column="54" selection-end-line="365" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_martin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="93" column="50" lean-forward="true" selection-start-line="93" selection-start-column="50" selection-end-line="93" selection-end-column="50" />
-          <folding>
-            <element signature="e#65#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_halfCheetah.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="41" selection-start-line="41" selection-end-line="56" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ddpg/exec/Cheetah.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -427,10 +453,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_martin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6233">
+          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Lucy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="367" column="55" selection-start-line="367" selection-start-column="45" selection-end-line="367" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Phil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="451" column="34" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_halfCheetah.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ddpg/exec/evalDDPG_ant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-751">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        <state relative-caret-position="329">
+          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
         </state>
       </provider>
     </entry>

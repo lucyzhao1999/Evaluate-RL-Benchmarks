@@ -9,10 +9,10 @@ import logging
 logging.getLogger('tensorflow').setLevel(logging.ERROR)
 import gym
 import pandas as pd
-
 from functionTools.loadSaveModel import loadFromPickle
 from ddpg.src.ddpg_Lucy import *
 from ddpg.src.ddpg_martin import *
+from ddpg.src.ddpg_Phil import *
 
 class EvaluateDDPG:
     def __init__(self, hyperparamDict):
@@ -25,8 +25,10 @@ class EvaluateDDPG:
 
         if person == 'Lucy':
             ddpgModel = LucyDDPG(self.hyperparamDict)
-        else:
+        elif person == 'Martin':
             ddpgModel = MartinDDPG(self.hyperparamDict)
+        else:
+            ddpgModel = PhilDDPG(self.hyperparamDict)
 
         meanRewardList = ddpgModel(env)
 
@@ -61,7 +63,7 @@ def main():
     hyperparamDict['minibatchSize'] = 64
 
     hyperparamDict['gradNormClipValue'] = None
-    hyperparamDict['maxEpisode'] = 300
+    hyperparamDict['maxEpisode'] = 3
     hyperparamDict['maxTimeStep'] = 1000
     hyperparamDict['bufferSize'] = 1e5
 
@@ -87,7 +89,7 @@ def main():
 
     independentVariables = dict()
     # independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
-    independentVariables['person'] = ['Lucy', 'Martin']
+    independentVariables['person'] = ['Phil']
     evaluateWolfSheepTrain = EvaluateDDPG(hyperparamDict)
 
     levelNames = list(independentVariables.keys())

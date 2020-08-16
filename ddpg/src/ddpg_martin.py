@@ -100,12 +100,12 @@ class MartinDDPG:
             state = env.reset()
             rewards = 0
             for j in range(self.fixedParameters['maxTimeStep']):
-                env.render()
+                # env.render()
                 noise = getnoise(self.runstep)
                 noiseaction = getnoiseaction(state, noise)
                 nextstate, reward, done, info = env.step(noiseaction)
-                if done:
-                    print('done')
+                # if done:
+                #     print('done')
                 learn(replaybuffer, state, noiseaction, nextstate, reward)
                 trajectory.append((state, noiseaction, nextstate, reward))
                 rewards += reward
