@@ -94,7 +94,7 @@ class MartinDDPG:
         actorModel = ReplaceParameters(actorModel)
         criticModel = ReplaceParameters(criticModel)
         state = env.reset()
-        replaybuffer = fillbuffer(3000, self.bufferfill, env, replaybuffer, state)
+        replaybuffer = fillbuffer(0, self.bufferfill, env, replaybuffer, state)
 
         for episode in range(1, self.fixedParameters['maxEpisode'] + 1):
             state = env.reset()

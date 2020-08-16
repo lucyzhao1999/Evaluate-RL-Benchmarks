@@ -20,15 +20,13 @@ class EvaluateDDPG:
 
     def __call__(self, df):
         person = df.index.get_level_values('person')[0]
-        env_name = 'MountainCarContinuous-v0'
+        env_name = 'HalfCheetah-v2'
         env = gym.make(env_name)
 
         if person == 'Lucy':
             ddpgModel = LucyDDPG(self.hyperparamDict)
-        elif person == 'Martin':
-            ddpgModel = MartinDDPG(self.hyperparamDict)
         else:
-            ddpgModel = PhilDDPG(self.hyperparamDict)
+            ddpgModel = MartinDDPG(self.hyperparamDict)
 
         meanRewardList = ddpgModel(env)
 
@@ -39,23 +37,23 @@ class EvaluateDDPG:
 
 
 def main():
-    fileName = 'mountainCarContinuous'
+    fileName = 'HalfCheetah'
 
     hyperparamDict = dict()
     hyperparamDict['actorHiddenLayersWidths'] = [256] #[400, 300]
     hyperparamDict['actorActivFunction'] = [tf.nn.relu]* len(hyperparamDict['actorHiddenLayersWidths'])+ [tf.nn.tanh]
-    hyperparamDict['actorHiddenLayersWeightInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['actorHiddenLayersWidths']]
-    hyperparamDict['actorHiddenLayersBiasInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['actorHiddenLayersWidths']]
-    hyperparamDict['actorOutputWeightInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
-    hyperparamDict['actorOutputBiasInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
+    hyperparamDict['actorHiddenLayersWeightInit'] = [tf.random_normal_initializer(0., 0.1) for units in hyperparamDict['actorHiddenLayersWidths']]
+    hyperparamDict['actorHiddenLayersBiasInit'] = [tf.constant_initializer(0.1) for units in hyperparamDict['actorHiddenLayersWidths']]
+    hyperparamDict['actorOutputWeightInit'] = tf.random_normal_initializer(0., 0.1)
+    hyperparamDict['actorOutputBiasInit'] = tf.random_normal_initializer(0., 0.1)
     hyperparamDict['actorLR'] = 1e-4
 
     hyperparamDict['criticHiddenLayersWidths'] = [256] #[400, 300]
     hyperparamDict['criticActivFunction'] = [tf.nn.relu]* len(hyperparamDict['criticHiddenLayersWidths'])+ [None]
-    hyperparamDict['criticHiddenLayersWeightInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['criticHiddenLayersWidths']]
-    hyperparamDict['criticHiddenLayersBiasInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['criticHiddenLayersWidths']]
-    hyperparamDict['criticOutputWeightInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
-    hyperparamDict['criticOutputBiasInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
+    hyperparamDict['criticHiddenLayersWeightInit'] = [tf.random_normal_initializer(0., 0.1) for units in hyperparamDict['criticHiddenLayersWidths']]
+    hyperparamDict['criticHiddenLayersBiasInit'] = [tf.constant_initializer(0.1) for units in hyperparamDict['criticHiddenLayersWidths']]
+    hyperparamDict['criticOutputWeightInit'] = tf.random_normal_initializer(0., 0.1)
+    hyperparamDict['criticOutputBiasInit'] = tf.random_normal_initializer(0., 0.1)
     hyperparamDict['criticLR'] = 1e-3
 
     hyperparamDict['tau'] = 0.001
@@ -63,14 +61,14 @@ def main():
     hyperparamDict['minibatchSize'] = 64
 
     hyperparamDict['gradNormClipValue'] = None
-    hyperparamDict['maxEpisode'] = 5# 300
+    hyperparamDict['maxEpisode'] = 2000
     hyperparamDict['maxTimeStep'] = 1000
-    hyperparamDict['bufferSize'] = 1e5
+    hyperparamDict['bufferSize'] = 500000
 
-    hyperparamDict['noiseInitVariance'] = 1
+    hyperparamDict['noiseInitVariance'] = 2
     hyperparamDict['varianceDiscount'] = 1e-5
     hyperparamDict['noiseDecayStartStep'] = hyperparamDict['bufferSize']
-    hyperparamDict['minVar'] = .1
+    hyperparamDict['minVar'] = .001
     hyperparamDict['normalizeEnv'] = False
 
     modelDir = os.path.join(dirName, '..', 'results', 'models')
@@ -88,7 +86,8 @@ def main():
     hyperparamDict['rewardSavePathMartin'] = os.path.join(rewardDir, fileName + '_Martin')
 
     independentVariables = dict()
-    independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
+    # independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
+    independentVariables['person'] = ['Lucy', 'Martin']
     evaluateWolfSheepTrain = EvaluateDDPG(hyperparamDict)
 
     levelNames = list(independentVariables.keys())
