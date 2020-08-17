@@ -2,7 +2,10 @@ import os
 import numpy as np
 import gym
 import tensorflow as tf
-from functionTools.loadSaveModel import saveToPickle, loadFromPickle, saveVariables
+from tensorflow.initializers import random_uniform
+from collections import OrderedDict
+from functionTools.loadSaveModel import saveToPickle, loadFromPickle
+from functionTools.loadSaveModel import saveVariables
 
 
 class GetNoise():
@@ -301,7 +304,6 @@ class Agent(object):
         mu = self.actor.predict(state)  # returns list of list
         noise = self.noise(self.runtime)
         mu_prime = np.clip(mu + noise, low, high)
-        self.runtime += 1
 
         return mu_prime[0]
 
@@ -433,34 +435,39 @@ class PhilDDPG(object):
             path=self.hyperparamDict['modelSavePathPhil']
         )
 
-        score_history = []
-        for i in range(self.hyperparamDict['maxTimeStep']):
+        episodeRewardList = []
+        meanEpsRewardList = []
+
+        for episode in range(1, self.hyperparamDict['maxEpisode'] + 1):
             obs = env.reset()
-            done = False
-            count = 0
-            score = 0
-            a = []
-            b = []
-            while not done:
+            epsReward = 0
+
+            for i in range(self.hyperparamDict['maxTimeStep']):
+                done = False
+
+                # env.render()
                 act = agent.choose_action(obs, env.action_space.low, env.action_space.high)
                 new_state, reward, done, info = env.step(act)
                 agent.remember(obs, act, reward, new_state, int(done))
                 agent.learn()
-                score += reward
+                epsReward += reward
                 obs = new_state
-                count += 1
-                # a.append(reward)
-                # b.append(act)
 
-                # env.render()
+                agent.runtime += 1
 
-            score_history.append(score)
-            print('episode ', i, 'score %.2f' % score,
-                  'trailing 100 games avg %.3f' % np.mean(score_history[-100:]),
-                  'timestep:', count)
-            if np.mean(score_history[-150:]) >= 90:
-                break
+                if done:
+                    break
+
+            episodeRewardList.append(epsReward)
+            meanEpsRewardList.append(np.mean(episodeRewardList))
+            last100EpsMeanReward = np.mean(episodeRewardList[-100:])
+
+            if episode % 1 == 0:
+                print('episode: {}, last 100eps mean reward: {}, last eps reward: {} with {} steps'.format(episode,
+                                                                                                           last100EpsMeanReward,
+                                                                                                           epsReward,
+                                                                                                           agent.runtime))
 
         agent.save_models()
-        saveToPickle(score_history, self.hyperparamDict['rewardSavePathPhil'])
-        return score_history
+        saveToPickle(meanEpsRewardList, self.hyperparamDict['rewardSavePathPhil'])
+        return meanEpsRewardList

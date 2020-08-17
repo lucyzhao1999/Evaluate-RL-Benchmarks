@@ -88,8 +88,8 @@ def main():
     hyperparamDict['rewardSavePathMartin'] = os.path.join(rewardDir, fileName + '_Martin')
 
     independentVariables = dict()
-    # independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
-    independentVariables['person'] = ['Phil']
+    independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
+
     evaluateWolfSheepTrain = EvaluateDDPG(hyperparamDict)
 
     levelNames = list(independentVariables.keys())
