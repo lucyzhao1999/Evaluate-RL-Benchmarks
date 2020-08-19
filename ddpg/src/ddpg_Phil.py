@@ -401,6 +401,8 @@ class PhilDDPG(object):
         self.runtime = 0
 
     def __call__(self, env):
+        tf.reset_default_graph()
+
         agent = Agent(
             alpha=self.hyperparamDict['actorLR'],
             beta=self.hyperparamDict['criticLR'],

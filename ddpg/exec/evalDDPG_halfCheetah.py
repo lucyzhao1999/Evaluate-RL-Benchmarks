@@ -13,6 +13,7 @@ import pandas as pd
 from functionTools.loadSaveModel import loadFromPickle
 from ddpg.src.ddpg_Lucy import *
 from ddpg.src.ddpg_martin import *
+from ddpg.src.ddpg_Phil import *
 
 class EvaluateDDPG:
     def __init__(self, hyperparamDict):
@@ -22,11 +23,14 @@ class EvaluateDDPG:
         person = df.index.get_level_values('person')[0]
         env_name = 'HalfCheetah-v2'
         env = gym.make(env_name)
+        tf.reset_default_graph()
 
         if person == 'Lucy':
             ddpgModel = LucyDDPG(self.hyperparamDict)
-        else:
+        elif person == 'Martin':
             ddpgModel = MartinDDPG(self.hyperparamDict)
+        else:
+            ddpgModel = PhilDDPG(self.hyperparamDict)
 
         meanRewardList = ddpgModel(env)
 

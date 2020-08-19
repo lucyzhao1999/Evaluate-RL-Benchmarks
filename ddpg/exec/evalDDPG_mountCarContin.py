@@ -63,7 +63,7 @@ def main():
     hyperparamDict['minibatchSize'] = 64
 
     hyperparamDict['gradNormClipValue'] = None
-    hyperparamDict['maxEpisode'] = 3
+    hyperparamDict['maxEpisode'] = 300
     hyperparamDict['maxTimeStep'] = 1000
     hyperparamDict['bufferSize'] = 1e5
 

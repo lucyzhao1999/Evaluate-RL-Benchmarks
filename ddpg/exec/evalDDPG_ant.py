@@ -13,20 +13,24 @@ import pandas as pd
 from functionTools.loadSaveModel import loadFromPickle
 from ddpg.src.ddpg_Lucy import *
 from ddpg.src.ddpg_martin import *
+from ddpg.src.ddpg_Phil import *
 
 class EvaluateDDPG:
     def __init__(self, hyperparamDict):
         self.hyperparamDict = hyperparamDict
 
     def __call__(self, df):
+
         person = df.index.get_level_values('person')[0]
         env_name = 'Ant-v2'
         env = gym.make(env_name)
 
         if person == 'Lucy':
             ddpgModel = LucyDDPG(self.hyperparamDict)
-        else:
+        elif person == 'Martin':
             ddpgModel = MartinDDPG(self.hyperparamDict)
+        else:
+            ddpgModel = PhilDDPG(self.hyperparamDict)
 
         meanRewardList = ddpgModel(env)
 

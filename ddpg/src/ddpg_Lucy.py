@@ -350,6 +350,7 @@ class LucyDDPG:
         actionHigh = env.action_space.high
         actionLow = env.action_space.low
         actionBound = (actionHigh - actionLow) / 2
+        tf.reset_default_graph()
 
         session = tf.Session()
         stateDim = env.observation_space.shape[0]
