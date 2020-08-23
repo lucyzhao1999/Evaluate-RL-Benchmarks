@@ -100,12 +100,9 @@ class MartinDDPG:
             state = env.reset()
             rewards = 0
             for j in range(self.fixedParameters['maxTimeStep']):
-                # env.render()
                 noise = getnoise(self.runstep)
                 noiseaction = getnoiseaction(state, noise)
                 nextstate, reward, done, info = env.step(noiseaction)
-                # if done:
-                #     print('done')
                 learn(replaybuffer, state, noiseaction, nextstate, reward)
                 trajectory.append((state, noiseaction, nextstate, reward))
                 rewards += reward
@@ -121,12 +118,13 @@ class MartinDDPG:
                 meanreward.append(np.mean(totalreward))
                 print('episode: ', episode, 'meanreward:', np.mean(totalreward))
                 totalreward = []
-        with actorModel.as_default():
-            saveVariables(actorModel, self.fixedParameters['modelSavePathMartin'])
-        with criticModel.as_default():
-            saveVariables(criticModel, self.fixedParameters['modelSavePathMartin'])
-        saveToPickle(episodereward, self.fixedParameters['rewardSavePathMartin'])
 
+            if episode % self.fixedParameters['modelSaveRate'] == 0:
+                modelSavePathToUse = self.fixedParameters['modelSavePathMartin'] + str(episode) + "eps"
+                with actorModel.as_default():
+                    saveVariables(actorModel, modelSavePathToUse)
+
+        saveToPickle(episodereward, self.fixedParameters['rewardSavePathMartin'])
         return episodereward
 
 

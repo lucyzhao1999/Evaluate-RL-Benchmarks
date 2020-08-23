@@ -1,2 +1,0 @@
-model_checkpoint_path: "/Users/zhaominglu/PycharmProjects/Evaluate-RL-Benchmarks/ddpg/exec/../results/models/HalfCheetah_Phil/TargetCritic_ddpg.ckpt"
-all_model_checkpoint_paths: "/Users/zhaominglu/PycharmProjects/Evaluate-RL-Benchmarks/ddpg/exec/../results/models/HalfCheetah_Phil/TargetCritic_ddpg.ckpt"

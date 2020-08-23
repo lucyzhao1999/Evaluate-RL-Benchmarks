@@ -15,36 +15,25 @@ from ddpg.src.ddpg_Lucy import *
 from ddpg.src.ddpg_martin import *
 from ddpg.src.ddpg_Phil import *
 
-class EvaluateDDPG:
-    def __init__(self, hyperparamDict):
-        self.hyperparamDict = hyperparamDict
 
-    def __call__(self, df):
-
-        person = df.index.get_level_values('person')[0]
-        env_name = 'Ant-v2'
-        env = gym.make(env_name)
-
-        if person == 'Lucy':
-            ddpgModel = LucyDDPG(self.hyperparamDict)
-        elif person == 'Martin':
-            ddpgModel = MartinDDPG(self.hyperparamDict)
-        else:
-            ddpgModel = PhilDDPG(self.hyperparamDict)
-
-        meanRewardList = ddpgModel(env)
-
-        timeStep = list(range(len(meanRewardList)))
-        resultSe = pd.Series({time: reward for time, reward in zip(timeStep, meanRewardList)})
-
-        return resultSe
-
+import json
 
 def main():
+    debug = 0
+    if debug:
+        person = 'Lucy'
+        seed = 0
+    else:
+        print(sys.argv)
+        condition = json.loads(sys.argv[1])
+        person = condition['person']
+        seed = int(condition['seed'])
+
+    env_name = 'Ant-v2'
     fileName = 'Ant'
 
     hyperparamDict = dict()
-    hyperparamDict['actorHiddenLayersWidths'] = [256] #[400, 300]
+    hyperparamDict['actorHiddenLayersWidths'] = [256, 256] #[400, 300]
     hyperparamDict['actorActivFunction'] = [tf.nn.relu]* len(hyperparamDict['actorHiddenLayersWidths'])+ [tf.nn.tanh]
     hyperparamDict['actorHiddenLayersWeightInit'] = [tf.random_normal_initializer(0., 0.1) for units in hyperparamDict['actorHiddenLayersWidths']]
     hyperparamDict['actorHiddenLayersBiasInit'] = [tf.constant_initializer(0.1) for units in hyperparamDict['actorHiddenLayersWidths']]
@@ -52,7 +41,7 @@ def main():
     hyperparamDict['actorOutputBiasInit'] = tf.random_normal_initializer(0., 0.1)
     hyperparamDict['actorLR'] = 1e-4
 
-    hyperparamDict['criticHiddenLayersWidths'] = [256] #[400, 300]
+    hyperparamDict['criticHiddenLayersWidths'] = [256, 256] #[400, 300]
     hyperparamDict['criticActivFunction'] = [tf.nn.relu]* len(hyperparamDict['criticHiddenLayersWidths'])+ [None]
     hyperparamDict['criticHiddenLayersWeightInit'] = [tf.random_normal_initializer(0., 0.1) for units in hyperparamDict['criticHiddenLayersWidths']]
     hyperparamDict['criticHiddenLayersBiasInit'] = [tf.constant_initializer(0.1) for units in hyperparamDict['criticHiddenLayersWidths']]
@@ -62,55 +51,46 @@ def main():
 
     hyperparamDict['tau'] = 0.001
     hyperparamDict['gamma'] = 0.99
-    hyperparamDict['minibatchSize'] = 64
+    hyperparamDict['minibatchSize'] = 128
 
     hyperparamDict['gradNormClipValue'] = None
-    hyperparamDict['maxEpisode'] = 2000
+    hyperparamDict['maxEpisode'] = 1000
     hyperparamDict['maxTimeStep'] = 1000
-    hyperparamDict['bufferSize'] = 500000
+    hyperparamDict['bufferSize'] = 1e6
 
     hyperparamDict['noiseInitVariance'] = 2
     hyperparamDict['varianceDiscount'] = 1e-5
-    hyperparamDict['noiseDecayStartStep'] = hyperparamDict['bufferSize']
-    hyperparamDict['minVar'] = .001
+    hyperparamDict['noiseDecayStartStep'] = 10000
+    hyperparamDict['minVar'] = .1
     hyperparamDict['normalizeEnv'] = False
+    hyperparamDict['modelSaveRate'] = 10 #eps
 
     modelDir = os.path.join(dirName, '..', 'results', 'models')
     if not os.path.exists(modelDir):
         os.makedirs(modelDir)
-    hyperparamDict['modelSavePathLucy'] = os.path.join(modelDir, fileName + '_Lucy')
-    hyperparamDict['modelSavePathPhil'] = os.path.join(modelDir, fileName + '_Phil')
-    hyperparamDict['modelSavePathMartin'] = os.path.join(modelDir, fileName + '_Martin')
+    hyperparamDict['modelSavePathLucy'] = os.path.join(modelDir, fileName + '_Lucy_seed'+ str(seed) + '_')
+    hyperparamDict['modelSavePathPhil'] = os.path.join(modelDir, fileName + '_Phil_seed'+ str(seed)+ '_')
+    hyperparamDict['modelSavePathMartin'] = os.path.join(modelDir, fileName + '_Martin_seed'+ str(seed)+ '_')
 
     rewardDir = os.path.join(dirName, '..', 'results', 'rewards')
     if not os.path.exists(rewardDir):
         os.makedirs(rewardDir)
-    hyperparamDict['rewardSavePathLucy'] = os.path.join(rewardDir, fileName + '_Lucy')
-    hyperparamDict['rewardSavePathPhil'] = os.path.join(rewardDir, fileName + '_Phil')
-    hyperparamDict['rewardSavePathMartin'] = os.path.join(rewardDir, fileName + '_Martin')
+    hyperparamDict['rewardSavePathLucy'] = os.path.join(rewardDir, fileName + '_Lucy'+ str(seed))
+    hyperparamDict['rewardSavePathPhil'] = os.path.join(rewardDir, fileName + '_Phil'+ str(seed))
+    hyperparamDict['rewardSavePathMartin'] = os.path.join(rewardDir, fileName + '_Martin'+ str(seed))
 
-    independentVariables = dict()
-    independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
-    evaluateWolfSheepTrain = EvaluateDDPG(hyperparamDict)
+    env = gym.make(env_name)
 
-    levelNames = list(independentVariables.keys())
-    levelValues = list(independentVariables.values())
-    levelIndex = pd.MultiIndex.from_product(levelValues, names=levelNames)
-    toSplitFrame = pd.DataFrame(index=levelIndex)
-    resultDF = toSplitFrame.groupby(levelNames).apply(evaluateWolfSheepTrain)
+    if person == 'Lucy':
+        ddpgModel = LucyDDPG(hyperparamDict)
+    elif person == 'Martin':
+        ddpgModel = MartinDDPG(hyperparamDict)
+    else:
+        ddpgModel = PhilDDPG(hyperparamDict)
 
-    evalResultDir = os.path.join(dirName, '..', 'results', 'eval')
-    if not os.path.exists(evalResultDir):
-        os.makedirs(evalResultDir)
-    resultLoc = os.path.join(evalResultDir, fileName + '.pkl')
-    saveToPickle(resultDF, resultLoc)
-
-    # resultDF = loadFromPickle(resultLoc)
-    print(resultDF)
-
-    resultDF.T.plot.line()
-    plt.savefig(os.path.join(evalResultDir, fileName))
-    plt.show()
+    tf.set_random_seed(seed)
+    np.random.seed(seed)
+    ddpgModel(env)
 
 
 if __name__ == '__main__':

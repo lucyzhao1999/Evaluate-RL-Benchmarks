@@ -81,7 +81,6 @@ class Actor(object):
         self.build_network()
         self.params = tf.trainable_variables(scope=self.name)
         self.saver = tf.train.Saver()
-        self.checkpoint_file = os.path.join(self.chkpt_dir, name + '_ddpg.ckpt')
 
         self.unnormalized_actor_gradients = tf.gradients(
             self.mu, self.params, -self.action_gradient)
@@ -126,13 +125,15 @@ class Actor(object):
                       feed_dict={self.input: inputs,
                                  self.action_gradient: gradients})
 
-    def load_checkpoint(self):
+    def load_checkpoint(self, episode):
         print("...Loading checkpoint...")
-        self.saver.restore(self.sess, self.checkpoint_file)
+        modelSavePathToUse = self.chkpt_dir + str(episode)+ "eps"
+        self.saver.restore(self.sess, modelSavePathToUse)
 
-    def save_checkpoint(self):
+    def save_checkpoint(self, episode):
         print("...Saving checkpoint...")
-        self.saver.save(self.sess, self.checkpoint_file)
+        modelSavePathToUse = self.chkpt_dir + str(episode)+ "eps"
+        self.saver.save(self.sess, modelSavePathToUse)
 
 
 class Critic(object):
@@ -329,11 +330,11 @@ class Agent(object):
 
         self.update_network_parameters()
 
-    def save_models(self):
-        self.actor.save_checkpoint()
-        self.target_actor.save_checkpoint()
-        self.critic.save_checkpoint()
-        self.target_critic.save_checkpoint()
+    def save_models(self, episode):
+        self.actor.save_checkpoint(episode)
+        # self.target_actor.save_checkpoint()
+        # self.critic.save_checkpoint()
+        # self.target_critic.save_checkpoint()
 
     def load_models(self):
         self.actor.load_checkpoint()
@@ -469,7 +470,8 @@ class PhilDDPG(object):
                                                                                                            last100EpsMeanReward,
                                                                                                            epsReward,
                                                                                                            agent.runtime))
+            if episode % self.hyperparamDict['modelSaveRate'] == 0:
+                agent.save_models(episode)
 
-        agent.save_models()
         saveToPickle(meanEpsRewardList, self.hyperparamDict['rewardSavePathPhil'])
         return meanEpsRewardList

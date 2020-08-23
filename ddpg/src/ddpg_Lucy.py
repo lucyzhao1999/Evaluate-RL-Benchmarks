@@ -366,8 +366,8 @@ class LucyDDPG:
         tf.add_to_collection("saver", saver)
         session.run(tf.global_variables_initializer())
 
-        modelSaveRate = self.hyperparamDict['maxEpisode']
-        saveModel = SaveModel(modelSaveRate, saveVariables, self.hyperparamDict['modelSavePathLucy'], session)
+        modelSaveRate = self.hyperparamDict['modelSaveRate']
+        saveModel = SaveModel(modelSaveRate, saveVariables, self.hyperparamDict['modelSavePathLucy'], session, saveAllmodels=True)
 
         trainDDPGOneStep = TrainDDPGModelsOneStep(reshapeBatchToGetSASR, actor, critic)
         learningStartBufferSize = self.hyperparamDict['minibatchSize']
