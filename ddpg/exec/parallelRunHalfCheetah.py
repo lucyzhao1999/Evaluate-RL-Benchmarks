@@ -12,11 +12,12 @@ import numpy as np
 import itertools as it
 
 class ExcuteCodeOnConditionsParallel:
-    def __init__(self, numSample, numCmdList):
+    def __init__(self, codeFileName, numSample, numCmdList):
+        self.codeFileName = codeFileName
         self.numSample = numSample
         self.numCmdList = numCmdList
 
-    def __call__(self, conditions, fileNameList):
+    def __call__(self, conditions):
         assert self.numCmdList >= len(conditions), "condition number > cmd number, use more cores or less conditions"
         numCmdListPerCondition = math.floor(self.numCmdList / len(conditions))
         if self.numSample:
@@ -24,23 +25,24 @@ class ExcuteCodeOnConditionsParallel:
             endSampleIndexes = np.concatenate([startSampleIndexes[1:], [self.numSample]])
             startEndIndexesPair = zip(startSampleIndexes, endSampleIndexes)
             conditionStartEndIndexesPair = list(it.product(conditions, startEndIndexesPair))
-            cmdList = [['python3', fileName, json.dumps(condition), str(startEndSampleIndex[0]), str(startEndSampleIndex[1])]
-                       for condition, startEndSampleIndex in conditionStartEndIndexesPair for fileName in fileNameList]
+            cmdList = [['python3', self.codeFileName, json.dumps(condition), str(startEndSampleIndex[0]), str(startEndSampleIndex[1])]
+                       for condition, startEndSampleIndex in conditionStartEndIndexesPair]
         else:
-            cmdList = [['python3', fileName, json.dumps(condition)] for condition in conditions for fileName in fileNameList]
-        print(cmdList)
+            cmdList = [['python3', self.codeFileName, json.dumps(condition)]
+                       for condition in conditions]
         processList = [Popen(cmd, stdout=PIPE, stderr=PIPE) for cmd in cmdList]
         for proc in processList:
             proc.communicate()
             # proc.wait()
         return cmdList
 
+
 def main():
     startTime = time.time()
-    fileNameList = ['evalDDPG_halfCheetah.py']
+    fileName = 'evalDDPG_halfCheetah.py'
     numSample = None
     numCpuToUse = int(0.8 * os.cpu_count())
-    excuteCodeParallel = ExcuteCodeOnConditionsParallel(numSample, numCpuToUse)
+    excuteCodeParallel = ExcuteCodeOnConditionsParallel(fileName, numSample, numCpuToUse)
     print("start")
 
     people = ['Lucy', 'Phil', 'Martin']
@@ -54,11 +56,12 @@ def main():
         parameters = {'person': person, 'seed': seed}
         conditions.append(parameters)
 
-    cmdList = excuteCodeParallel(conditions, fileNameList)
+    cmdList = excuteCodeParallel(conditions)
     print(cmdList)
 
     endTime = time.time()
     print("Time taken {} seconds".format((endTime - startTime)))
+
 
 if __name__ == '__main__':
     main()
