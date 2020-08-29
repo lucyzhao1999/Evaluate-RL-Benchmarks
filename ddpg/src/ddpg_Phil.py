@@ -2,7 +2,6 @@ import os
 import numpy as np
 import gym
 import tensorflow as tf
-from tensorflow.initializers import random_uniform
 from collections import OrderedDict
 from functionTools.loadSaveModel import saveToPickle, loadFromPickle
 from functionTools.loadSaveModel import saveVariables
@@ -125,9 +124,8 @@ class Actor(object):
                       feed_dict={self.input: inputs,
                                  self.action_gradient: gradients})
 
-    def load_checkpoint(self, episode):
+    def load_checkpoint(self, modelSavePathToUse):
         print("...Loading checkpoint...")
-        modelSavePathToUse = self.chkpt_dir + str(episode)+ "eps"
         self.saver.restore(self.sess, modelSavePathToUse)
 
     def save_checkpoint(self, episode):
@@ -308,6 +306,11 @@ class Agent(object):
 
         return mu_prime[0]
 
+    def choose_test_action(self, state, low, high):
+        state = state[np.newaxis, :]
+        mu = self.actor.predict(state)  # returns list of list
+        return mu[0]
+
     def learn(self):
         if self.memory.mem_cntr < self.batch_size:
             return
@@ -336,11 +339,8 @@ class Agent(object):
         # self.critic.save_checkpoint()
         # self.target_critic.save_checkpoint()
 
-    def load_models(self):
-        self.actor.load_checkpoint()
-        self.target_actor.load_checkpoint()
-        self.critic.save_checkpoint()
-        self.target_critic.save_checkpoint()
+    def load_models(self, loadPath):
+        self.actor.load_checkpoint(loadPath)
 
 
 def env_norm(env):
@@ -475,3 +475,65 @@ class PhilDDPG(object):
 
         saveToPickle(meanEpsRewardList, self.hyperparamDict['rewardSavePathPhil'])
         return meanEpsRewardList
+
+
+def getModelEvalResult(env, hyperparamDict, modelPath, numTrajToSample=10):
+    trajectoryreward = []
+    agent = Agent(
+        alpha=hyperparamDict['actorLR'],
+        beta=hyperparamDict['criticLR'],
+        input_dims=[env.observation_space.shape[0]],
+        tau=hyperparamDict['tau'],
+        env=env_norm(env) if hyperparamDict['normalizeEnv'] else env,
+        n_actions=env.action_space.shape[0],
+        units1=hyperparamDict['actorHiddenLayersWidths'],
+        units2=hyperparamDict['criticHiddenLayersWidths'],
+
+        actoractivationfunction=hyperparamDict['actorActivFunction'],
+        actorHiddenLayersWeightInit=hyperparamDict['actorHiddenLayersWeightInit'],
+        actorHiddenLayersBiasInit=hyperparamDict['actorHiddenLayersBiasInit'],
+        actorOutputWeightInit=hyperparamDict['actorOutputWeightInit'],
+        actorOutputBiasInit=hyperparamDict['actorOutputBiasInit'],
+
+        criticHiddenLayersWidths=hyperparamDict['criticHiddenLayersWidths'],
+        criticActivFunction=hyperparamDict['criticActivFunction'],
+        criticHiddenLayersBiasInit=hyperparamDict['criticHiddenLayersBiasInit'],
+        criticHiddenLayersWeightInit=hyperparamDict['criticHiddenLayersWeightInit'],
+        criticOutputWeightInit=hyperparamDict['criticOutputWeightInit'],
+        criticOutputBiasInit=hyperparamDict['criticOutputBiasInit'],
+
+        max_size=hyperparamDict['bufferSize'],
+        gamma=hyperparamDict['gamma'],
+        batch_size=hyperparamDict['minibatchSize'],
+        initnoisevar=hyperparamDict['noiseInitVariance'],
+        noiseDecay=hyperparamDict['varianceDiscount'],
+        noiseDacayStep=hyperparamDict['noiseDecayStartStep'],
+        minVar=hyperparamDict['minVar'],
+
+        path=hyperparamDict['modelSavePathPhil']
+    )
+
+    agent.load_models(modelPath)
+
+    for i in range(numTrajToSample):
+        obs = env.reset()
+        rewards = 0
+        for j in range(hyperparamDict['maxTimeStep']):
+            done = False
+            act = agent.choose_test_action(obs, env.action_space.low, env.action_space.high)
+            new_state, reward, done, info = env.step(act)
+            rewards += reward
+            obs = new_state
+
+            if done:
+                break
+        trajectoryreward.append(rewards)
+
+    meanTrajReward = np.mean(trajectoryreward)
+    seTrajReward = np.std(trajectoryreward) / np.sqrt(len(trajectoryreward) - 1)
+
+    return meanTrajReward, seTrajReward
+
+
+
+

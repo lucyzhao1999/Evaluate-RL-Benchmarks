@@ -339,7 +339,7 @@ class SaveModel:
 
 
 from environment.gymEnv.normalize import env_norm
-from functionTools.loadSaveModel import saveToPickle, saveVariables
+from functionTools.loadSaveModel import saveToPickle, saveVariables, restoreVariables
 from environment.noise.noise import MinusDecayGaussNoise
 
 class LucyDDPG:
@@ -387,3 +387,44 @@ class LucyDDPG:
         session.close()
 
         return meanEpsRewardList
+
+
+def getModelEvalResult(env, hyperparamDict, modelPath, numTrajToSample = 10):
+    actionHigh = env.action_space.high
+    actionLow = env.action_space.low
+    actionBound = (actionHigh - actionLow) / 2
+    tf.reset_default_graph()
+
+    session = tf.Session()
+    stateDim = env.observation_space.shape[0]
+    actionDim = env.action_space.shape[0]
+    getActorNetwork = GetActorNetwork(hyperparamDict, batchNorm=True)
+    actor = Actor(getActorNetwork, stateDim, actionDim, session, hyperparamDict, agentID=None,
+                           actionRange=actionBound)
+    getCriticNetwork = GetCriticNetwork(hyperparamDict, addActionToLastLayer=True, batchNorm=True)
+    critic = Critic(getCriticNetwork, stateDim, actionDim, session, hyperparamDict)
+
+    saver = tf.train.Saver(max_to_keep=None)
+    tf.add_to_collection("saver", saver)
+    session.run(tf.global_variables_initializer())
+    restoreVariables(session, modelPath)
+
+    trajRewardList = []
+    for i in range(numTrajToSample):
+        epsReward = 0
+        state = env.reset()
+        for timestep in range(hyperparamDict['maxTimeStep']):
+            state = np.asarray(state).reshape(1, -1)
+            action = actor.actByTrain(state)
+            nextState, reward, done, info = env.step(action)
+            epsReward += reward
+
+            if done:
+                break
+            state = nextState
+        trajRewardList.append(epsReward)
+
+    meanTrajReward = np.mean(trajRewardList)
+    seTrajReward = np.std(trajRewardList) / np.sqrt(len(trajRewardList) - 1)
+
+    return meanTrajReward, seTrajReward

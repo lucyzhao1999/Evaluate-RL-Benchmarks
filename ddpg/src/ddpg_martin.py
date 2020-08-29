@@ -7,6 +7,7 @@ import tensorflow as tf
 import numpy as np
 import random
 import gym
+import pickle
 import matplotlib.pyplot as plt
 from collections import deque
 from functionTools.loadSaveModel import saveToPickle, saveVariables
@@ -33,6 +34,38 @@ def fillbuffer(initbuffer, bufferfill, env, replaybuffer, state):
             memory(replaybuffer, state, action, next_state, reward)
             state = next_state
     return replaybuffer
+
+
+def getModelEvalResult(env, hyperparamDict, modelPath, numTrajToSample=10):
+    actionHigh = env.action_space.high
+    actionLow = env.action_space.low
+    actionBound = (actionHigh - actionLow) / 2
+    stateDim = env.observation_space.shape[0]
+    actionDim = env.action_space.shape[0]
+    trajectoryreward = []
+    buildActorModel = BuildActorModel(stateDim, actionDim, actionBound,
+                                      hyperparamDict['actorHiddenLayersWeightInit'],
+                                      hyperparamDict['actorHiddenLayersBiasInit'],
+                                      hyperparamDict['actorOutputWeightInit'], hyperparamDict['actorOutputBiasInit'],
+                                      hyperparamDict['actorActivFunction'],
+                                      hyperparamDict['gradNormClipValue'], hyperparamDict['normalizeEnv'])
+    actorModel = buildActorModel(hyperparamDict['actorHiddenLayersWidths'])
+    restoreVariables(actorModel, modelPath)
+
+    for i in range(numTrajToSample):
+        states = env.reset()
+        rewards = 0
+        for j in range(hyperparamDict['maxTimeStep']):
+            state = np.asarray(states).reshape(1, -1)
+            action = getevalaction(actorModel, state)
+            nextstate, reward, done, info = env.step(action)
+            rewards += reward
+            state = nextstate
+            if j == hyperparamDict['maxTimeStep'] - 1:
+                trajectoryreward.append(rewards)
+    meanTrajReward = np.mean(trajectoryreward)
+    seTrajReward = np.std(trajectoryreward) / np.sqrt(len(trajectoryreward) - 1)
+    return meanTrajReward, seTrajReward
 
 
 def ReplaceParameters(model):
@@ -540,6 +573,21 @@ class GetNoiseAction():
         action = getevalaction(self.actorModel, state)[0]
         noisyaction = np.clip(noise + action, self.actionLow, self.actionHigh)
         return noisyaction
+
+
+def loadFromPickle(path):
+    pickleIn = open(path, 'rb')
+    object = pickle.load(pickleIn)
+    pickleIn.close()
+    return object
+
+
+def restoreVariables(model, path):
+    graph = model.graph
+    saver = graph.get_collection_ref("saver")[0]
+    saver.restore(model, path)
+    print("Model restored from {}".format(path))
+    return model
 
 
 def env_norm(env):
