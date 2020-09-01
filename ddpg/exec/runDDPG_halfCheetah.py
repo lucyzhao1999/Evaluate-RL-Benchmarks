@@ -17,10 +17,10 @@ from ddpg.src.ddpg_Phil import *
 import json
 
 def main():
-    debug = 0
+    debug = 1
     if debug:
-        person = 'Lucy'
-        seed = 0
+        person = 'Phil'
+        seed = 4
     else:
         print(sys.argv)
         condition = json.loads(sys.argv[1])

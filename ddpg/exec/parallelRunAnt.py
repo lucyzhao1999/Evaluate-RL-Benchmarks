@@ -39,14 +39,14 @@ class ExcuteCodeOnConditionsParallel:
 
 def main():
     startTime = time.time()
-    fileName = 'runDDPG_halfCheetah.py'
+    fileName = 'runDDPG_ant.py'
     numSample = None
     numCpuToUse = int(0.8 * os.cpu_count())
     excuteCodeParallel = ExcuteCodeOnConditionsParallel(fileName, numSample, numCpuToUse)
     print("start")
 
-    people = ['Phil']
-    seedList = [1, 2, 4]
+    people = ['Lucy', 'Martin','Phil']
+    seedList = [1, 2, 3, 4, 5]
 
     conditionLevels = [(person, seed) for person in people for seed in seedList]
 

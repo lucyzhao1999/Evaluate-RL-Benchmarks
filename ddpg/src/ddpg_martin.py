@@ -56,13 +56,15 @@ def getModelEvalResult(env, hyperparamDict, modelPath, numTrajToSample=10):
         states = env.reset()
         rewards = 0
         for j in range(hyperparamDict['maxTimeStep']):
-            state = np.asarray(states).reshape(1, -1)
-            action = getevalaction(actorModel, state)
+            states = np.asarray(states).reshape(1, -1)
+            action = getevalaction(actorModel, states)
             nextstate, reward, done, info = env.step(action)
             rewards += reward
-            state = nextstate
-            if j == hyperparamDict['maxTimeStep'] - 1:
-                trajectoryreward.append(rewards)
+            if done:
+                break
+            states = nextstate
+        trajectoryreward.append(rewards)
+
     meanTrajReward = np.mean(trajectoryreward)
     seTrajReward = np.std(trajectoryreward) / np.sqrt(len(trajectoryreward) - 1)
     return meanTrajReward, seTrajReward
@@ -139,14 +141,16 @@ class MartinDDPG:
                 learn(replaybuffer, state, noiseaction, nextstate, reward)
                 trajectory.append((state, noiseaction, nextstate, reward))
                 rewards += reward
-                state = nextstate
                 self.runstep += 1
-                if j == self.fixedParameters['maxTimeStep'] - 1:
+                if done:
                     totalrewards.append(rewards)
                     totalreward.append(rewards)
                     print('episode: ', episode, 'reward:', rewards, 'runstep', self.runstep)
+                    break
+                state = nextstate
+
             episodereward.append(np.mean(totalrewards))
-            print('epireward', np.mean(totalrewards))
+            print('episodereward', np.mean(totalrewards))
             if episode % 100 == 0:
                 meanreward.append(np.mean(totalreward))
                 print('episode: ', episode, 'meanreward:', np.mean(totalreward))
@@ -188,8 +192,8 @@ class BuildActorModel():
         self.normalizeEnv = normalizeEnv
 
     def __call__(self, numberlayers):
-        graph = tf.Graph()
-        with graph.as_default():
+        actorgraph = tf.Graph()
+        with actorgraph.as_default():
             with tf.name_scope('inputs'):
                 states_ = tf.placeholder(tf.float32, [None, self.stateDim], 'states_')
                 nextstates_ = tf.placeholder(tf.float32, [None, self.stateDim], 'nextstates_')
@@ -275,7 +279,7 @@ class BuildActorModel():
             saver = tf.train.Saver(max_to_keep=None)
             tf.add_to_collection("saver", saver)
 
-            model = tf.Session(graph=graph)
+            model = tf.Session(graph=actorgraph)
             model.run(tf.global_variables_initializer())
 
         return model
@@ -296,8 +300,8 @@ class BuildCriticModel():
         self.normalizeEnv = normalizeEnv
 
     def __call__(self, numberlayers):
-        graph = tf.Graph()
-        with graph.as_default():
+        criticgraph = tf.Graph()
+        with criticgraph.as_default():
             with tf.name_scope('inputs'):
                 states_ = tf.placeholder(tf.float32, [None, self.stateDim])
                 action_ = tf.stop_gradient(tf.placeholder(tf.float32, [None, self.actionDim]))
@@ -394,8 +398,6 @@ class BuildCriticModel():
 
             with tf.name_scope("actionGradients"):
                 actionGradients_ = tf.gradients(Qevalvalue_, action_)[0]
-                actionGradients_ = tf.gradients(Qevalvalue_, action_)[0] if self.gradNormClipValue == None else [
-                    tf.clip_by_norm(grad, self.gradNormClipValue) for grad in tf.gradients(Qevalvalue_, action_)[0]]
                 tf.add_to_collection("actionGradients_", actionGradients_)
 
             with tf.name_scope("loss"):
@@ -414,7 +416,7 @@ class BuildCriticModel():
             saver = tf.train.Saver(max_to_keep=None)
             tf.add_to_collection("saver", saver)
 
-            model = tf.Session(graph=graph)
+            model = tf.Session(graph=criticgraph)
             model.run(tf.global_variables_initializer())
 
         return model

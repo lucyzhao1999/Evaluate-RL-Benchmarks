@@ -37,7 +37,7 @@ class ExcuteCodeOnConditionsParallel:
 
 def main():
     startTime = time.time()
-    fileNameList = ['evalDDPG_mountCarContin.py', 'evalDDPG_halfCheetah.py', 'evalDDPG_ant.py']
+    fileNameList = ['runDDPG_mountainCarCont.py', 'runDDPG_halfCheetah.py', 'runDDPG_ant.py']
     numSample = None
     numCpuToUse = int(0.8 * os.cpu_count())
     excuteCodeParallel = ExcuteCodeOnConditionsParallel(numSample, numCpuToUse)

@@ -48,38 +48,38 @@ class EvaluateDDPG:
 
 
 def main():
-    fileName = 'mountainCarContinuous'
-    env_name = 'MountainCarContinuous-v0'
+    env_name = 'HalfCheetah-v2'
+    fileName = 'HalfCheetah'
 
     hyperparamDict = dict()
-    hyperparamDict['actorHiddenLayersWidths'] = [256] #[400, 300]
+    hyperparamDict['actorHiddenLayersWidths'] = [256, 256] #[400, 300]
     hyperparamDict['actorActivFunction'] = [tf.nn.relu]* len(hyperparamDict['actorHiddenLayersWidths'])+ [tf.nn.tanh]
-    hyperparamDict['actorHiddenLayersWeightInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['actorHiddenLayersWidths']]
-    hyperparamDict['actorHiddenLayersBiasInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['actorHiddenLayersWidths']]
-    hyperparamDict['actorOutputWeightInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
-    hyperparamDict['actorOutputBiasInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
+    hyperparamDict['actorHiddenLayersWeightInit'] = [tf.random_normal_initializer(0., 0.1) for units in hyperparamDict['actorHiddenLayersWidths']]
+    hyperparamDict['actorHiddenLayersBiasInit'] = [tf.constant_initializer(0.1) for units in hyperparamDict['actorHiddenLayersWidths']]
+    hyperparamDict['actorOutputWeightInit'] = tf.random_normal_initializer(0., 0.1)
+    hyperparamDict['actorOutputBiasInit'] = tf.random_normal_initializer(0., 0.1)
     hyperparamDict['actorLR'] = 1e-4
 
-    hyperparamDict['criticHiddenLayersWidths'] = [256] #[400, 300]
+    hyperparamDict['criticHiddenLayersWidths'] = [256, 256] #[400, 300]
     hyperparamDict['criticActivFunction'] = [tf.nn.relu]* len(hyperparamDict['criticHiddenLayersWidths'])+ [None]
-    hyperparamDict['criticHiddenLayersWeightInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['criticHiddenLayersWidths']]
-    hyperparamDict['criticHiddenLayersBiasInit'] = [tf.random_uniform_initializer(-1/np.sqrt(units), 1/np.sqrt(units)) for units in hyperparamDict['criticHiddenLayersWidths']]
-    hyperparamDict['criticOutputWeightInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
-    hyperparamDict['criticOutputBiasInit'] = tf.random_uniform_initializer(minval=-3e-3, maxval=3e-3)
+    hyperparamDict['criticHiddenLayersWeightInit'] = [tf.random_normal_initializer(0., 0.1) for units in hyperparamDict['criticHiddenLayersWidths']]
+    hyperparamDict['criticHiddenLayersBiasInit'] = [tf.constant_initializer(0.1) for units in hyperparamDict['criticHiddenLayersWidths']]
+    hyperparamDict['criticOutputWeightInit'] = tf.random_normal_initializer(0., 0.1)
+    hyperparamDict['criticOutputBiasInit'] = tf.random_normal_initializer(0., 0.1)
     hyperparamDict['criticLR'] = 1e-3
 
     hyperparamDict['tau'] = 0.001
     hyperparamDict['gamma'] = 0.99
-    hyperparamDict['minibatchSize'] = 64
+    hyperparamDict['minibatchSize'] = 128
 
     hyperparamDict['gradNormClipValue'] = None
-    hyperparamDict['maxEpisode'] = 2000
+    hyperparamDict['maxEpisode'] = 1000
     hyperparamDict['maxTimeStep'] = 1000
-    hyperparamDict['bufferSize'] = 1e5
+    hyperparamDict['bufferSize'] = 1e6
 
-    hyperparamDict['noiseInitVariance'] = 1
+    hyperparamDict['noiseInitVariance'] = 2
     hyperparamDict['varianceDiscount'] = 1e-5
-    hyperparamDict['noiseDecayStartStep'] = hyperparamDict['bufferSize']
+    hyperparamDict['noiseDecayStartStep'] = 10000
     hyperparamDict['minVar'] = .1
     hyperparamDict['normalizeEnv'] = False
     hyperparamDict['modelSaveRate'] = 10 #eps
@@ -87,7 +87,7 @@ def main():
     env = gym.make(env_name)
 
     independentVariables = dict()
-    independentVariables['person'] = ['Lucy', 'Phil', 'Martin']
+    independentVariables['person'] = ['Lucy', 'Martin']
     independentVariables['seed'] = [1, 2, 3, 4, 5]
     independentVariables['timeStep'] = list(range(10, 1010, 10))
 
@@ -99,7 +99,7 @@ def main():
     toSplitFrame = pd.DataFrame(index=levelIndex)
     resultDF = toSplitFrame.groupby(levelNames).apply(evaluate)
 
-    evalResultDir = os.path.join(dirName, '..', 'results', 'eval')
+    evalResultDir = os.path.join(dirName, '..', 'results', 'evalAll')
     if not os.path.exists(evalResultDir):
         os.makedirs(evalResultDir)
     resultLoc = os.path.join(evalResultDir, fileName + '.pkl')
@@ -113,3 +113,5 @@ def main():
     plt.show()
 
 
+if __name__ == '__main__':
+    main()
