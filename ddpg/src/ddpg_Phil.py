@@ -510,7 +510,7 @@ def getModelEvalResult(env, hyperparamDict, modelPath, numTrajToSample=10):
         noiseDacayStep=hyperparamDict['noiseDecayStartStep'],
         minVar=hyperparamDict['minVar'],
 
-        path=hyperparamDict['modelSavePathPhil']
+        path= modelPath
     )
 
     agent.load_models(modelPath)

@@ -2,15 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e5f2acb-409d-44e6-b196-0afea6c02bfd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/evalDDPG_ant.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/runDDPG_ant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/evalDDPG_halfCheetah.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/runDDPG_halfCheetah.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/evalDDPG_mountCarContin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/runDDPG_mountainCarCont.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/evaluateDDPGFromTrainedModels.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/parallelRunHalfCheetah.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/parallelRunHalfCheetah.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/parallelRunMountCarContin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/parallelRunMountCarContin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/parallelRunTogether.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/parallelRunTogether.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/src/ddpg_martin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/src/ddpg_martin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.png" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_10eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_10eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_10eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_20eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_20eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_20eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_30eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_30eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_30eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_40eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_40eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_40eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_50eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_50eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_50eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_10eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_10eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_10eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_20eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_20eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_20eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_30eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_30eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_30eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_40eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_40eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_40eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_50eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_50eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_50eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_10eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_10eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_10eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_20eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_20eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_20eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_30eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_30eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_30eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_40eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_40eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_40eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_50eps.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_50eps.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_50eps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/results/models/checkpoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_martin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="259">
+              <caret line="159" column="78" selection-start-line="159" selection-start-column="72" selection-end-line="159" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -35,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddpg/exec/runDDPG_halfCheetah.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="58" column="43" lean-forward="true" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+            <state relative-caret-position="211">
+              <caret line="65" column="36" selection-start-line="65" selection-end-line="66" />
             </state>
           </provider>
         </entry>
@@ -44,26 +85,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddpg/exec/runDDPG_ant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
+            <state relative-caret-position="1220">
               <caret line="73" selection-start-line="73" selection-end-line="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ddpg/exec/parallelRunHalfCheetah.py">
+        <entry file="file://$PROJECT_DIR$/ddpg/exec/evaluateDDPG_swimmer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+            <state relative-caret-position="587">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddpg/exec/parallelRunAnt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="58" column="44" lean-forward="true" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="95" column="50" lean-forward="true" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddpg/exec/evaluateDDPG_Ant.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="113" selection-start-line="113" selection-end-line="116" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ddpg/exec/parallelRunAnt.py">
+        <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Phil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="-1015">
+              <caret line="437" column="57" lean-forward="true" selection-start-line="437" selection-start-column="57" selection-end-line="437" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +163,6 @@
       <find>done</find>
       <find>env</find>
       <find>save</find>
-      <find>path</find>
       <find>save_checkpoint</find>
       <find>save_models</find>
       <find>Actor</find>
@@ -101,9 +171,14 @@
       <find>print</find>
       <find>load_models</find>
       <find>load_checkpoint</find>
+      <find>path</find>
+      <find>chkpt_dir</find>
+      <find>HalfCheetah</find>
+      <find>Martin</find>
     </findStrings>
     <replaceStrings>
       <replace>hyperparamDict</replace>
+      <replace>Ant</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -133,7 +208,6 @@
         <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG.py" />
         <option value="$PROJECT_DIR$/ddpg/src/ddpg.py" />
         <option value="$PROJECT_DIR$/ddpg/src/ddpg_Lucy.py" />
-        <option value="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/tryplot.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evalDDPG_halfCheetah.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPGFromTrainedModels.py" />
@@ -142,6 +216,12 @@
         <option value="$PROJECT_DIR$/ddpg/exec/parallelRunHalfCheetah.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/parallelRunAnt.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/runDDPG_halfCheetah.py" />
+        <option value="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" />
+        <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_Ant.py" />
+        <option value="$PROJECT_DIR$/ddpg/exec/runDDPG_swimmer.py" />
+        <option value="$PROJECT_DIR$/ddpg/exec/parallelRunSwimmer.py" />
+        <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_swimmer.py" />
+        <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" />
       </list>
     </option>
   </component>
@@ -173,39 +253,6 @@
               <item name="Evaluate-RL-Benchmarks" type="462c0819:PsiDirectoryNode" />
               <item name="ddpg" type="462c0819:PsiDirectoryNode" />
               <item name="exec" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Evaluate-RL-Benchmarks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Evaluate-RL-Benchmarks" type="462c0819:PsiDirectoryNode" />
-              <item name="ddpg" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Evaluate-RL-Benchmarks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Evaluate-RL-Benchmarks" type="462c0819:PsiDirectoryNode" />
-              <item name="ddpg" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-              <item name="eval" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Evaluate-RL-Benchmarks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Evaluate-RL-Benchmarks" type="462c0819:PsiDirectoryNode" />
-              <item name="ddpg" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Evaluate-RL-Benchmarks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Evaluate-RL-Benchmarks" type="462c0819:PsiDirectoryNode" />
-              <item name="ddpg" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-              <item name="rewards" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Evaluate-RL-Benchmarks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Evaluate-RL-Benchmarks" type="462c0819:PsiDirectoryNode" />
-              <item name="ddpg" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -250,7 +297,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.runDDPG_halfCheetah">
+  <component name="RunManager" selected="Python.evaluateDDPG_Ant">
+    <configuration name="evaluateDDPG_Ant" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Evaluate-RL-Benchmarks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ddpg/exec" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_Ant.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="evaluateDDPG_halfCheetah" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Evaluate-RL-Benchmarks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ddpg/exec" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="parallelRunHalfCheetah" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Evaluate-RL-Benchmarks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -265,50 +356,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/parallelRunHalfCheetah.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="parallelRunMountCarContin" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Evaluate-RL-Benchmarks" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ddpg/exec" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/parallelRunMountCarContin.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="parallelRunTogether" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Evaluate-RL-Benchmarks" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ddpg/exec" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ddpg/exec/parallelRunTogether.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -362,19 +409,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.parallelRunMountCarContin" />
-      <item itemvalue="Python.parallelRunTogether" />
       <item itemvalue="Python.tryplot" />
       <item itemvalue="Python.parallelRunHalfCheetah" />
       <item itemvalue="Python.runDDPG_halfCheetah" />
+      <item itemvalue="Python.evaluateDDPG_halfCheetah" />
+      <item itemvalue="Python.evaluateDDPG_Ant" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.evaluateDDPG_Ant" />
+        <item itemvalue="Python.evaluateDDPG_halfCheetah" />
         <item itemvalue="Python.runDDPG_halfCheetah" />
         <item itemvalue="Python.parallelRunHalfCheetah" />
         <item itemvalue="Python.tryplot" />
-        <item itemvalue="Python.parallelRunTogether" />
-        <item itemvalue="Python.parallelRunMountCarContin" />
       </list>
     </recent_temporary>
   </component>
@@ -391,12 +438,12 @@
       <workItem from="1597340639297" duration="15227000" />
       <workItem from="1597602056437" duration="4215000" />
       <workItem from="1597932087124" duration="22560000" />
-      <workItem from="1598680799947" duration="7648000" />
+      <workItem from="1598680799947" duration="15332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49650000" />
+    <option name="totallyTimeSpent" value="57334000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -409,14 +456,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49937108" visible="true" weight="0.11134904" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49937108" visible="true" weight="0.20663811" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50062895" side_tool="true" weight="0.0738758" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32996973" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18365288" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17558022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39959636" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -430,7 +476,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.248394" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.33672377" />
       <window_info anchor="right" id="R Graphics" order="4" />
       <window_info anchor="right" id="R Packages" order="5" />
       <window_info anchor="right" id="Database" order="6" />
@@ -444,11 +490,13 @@
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$generateTrajectory.coverage" NAME="generateTrajectory Coverage Results" MODIFIED="1597932818511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$plot.coverage" NAME="plot Coverage Results" MODIFIED="1597970871956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$parallelRunMountCarContin.coverage" NAME="parallelRunMountCarContin Coverage Results" MODIFIED="1598219686252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
+    <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evaluateDDPG_Ant.coverage" NAME="evaluateDDPG_Ant Coverage Results" MODIFIED="1599194307125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$getRewards.coverage" NAME="getRewards Coverage Results" MODIFIED="1597970513943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/results/models" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evalDDPG.coverage" NAME="evalDDPG Coverage Results" MODIFIED="1598207158445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$Ant.coverage" NAME="Ant Coverage Results" MODIFIED="1597354002853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evalDDPG_ant.coverage" NAME="evalDDPG_ant Coverage Results" MODIFIED="1597590823890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$Cheetah.coverage" NAME="Cheetah Coverage Results" MODIFIED="1597353889613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
+    <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$evaluateDDPG_halfCheetah.coverage" NAME="evaluateDDPG_halfCheetah Coverage Results" MODIFIED="1599193797664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$execLucyDDPG.coverage" NAME="execLucyDDPG Coverage Results" MODIFIED="1597365522269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$tryplot.coverage" NAME="tryplot Coverage Results" MODIFIED="1598633069727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
     <SUITE FILE_PATH="coverage/Evaluate_RL_Benchmarks$parallelRunHalfCheetah.coverage" NAME="parallelRunHalfCheetah Coverage Results" MODIFIED="1598976040526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg/exec" />
@@ -598,24 +646,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_martin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ddpg/exec/parallelRunTogether.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="72" column="41" lean-forward="true" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -629,30 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Phil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/exec/runDDPG_halfCheetah.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="58" column="43" lean-forward="true" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ddpg/exec/runDDPG_ant.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ddpg/exec/parallelRunHalfCheetah.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -660,10 +670,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/runDDPG_halfCheetah.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="65" column="36" selection-start-line="65" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/evaluateDDPG_Ant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="113" selection-start-line="113" selection-end-line="116" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/runDDPG_swimmer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/parallelRunSwimmer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/runDDPG_ant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/evaluateDDPG_swimmer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="95" column="50" lean-forward="true" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ddpg/exec/parallelRunAnt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="462">
+          <caret line="58" column="44" lean-forward="true" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_martin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="159" column="78" selection-start-line="159" selection-start-column="72" selection-end-line="159" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Phil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1015">
+          <caret line="437" column="57" lean-forward="true" selection-start-line="437" selection-start-column="57" selection-end-line="437" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

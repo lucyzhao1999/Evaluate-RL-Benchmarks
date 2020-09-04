@@ -48,8 +48,8 @@ class EvaluateDDPG:
 
 
 def main():
-    env_name = 'HalfCheetah-v2'
-    fileName = 'HalfCheetah'
+    env_name = 'Ant-v2'
+    fileName = 'Ant'
 
     hyperparamDict = dict()
     hyperparamDict['actorHiddenLayersWidths'] = [256, 256] #[400, 300]
@@ -97,19 +97,21 @@ def main():
     levelValues = list(independentVariables.values())
     levelIndex = pd.MultiIndex.from_product(levelValues, names=levelNames)
     toSplitFrame = pd.DataFrame(index=levelIndex)
-    resultDF = toSplitFrame.groupby(levelNames).apply(evaluate)
+    # resultDF = toSplitFrame.groupby(levelNames).apply(evaluate)
+
 
     evalResultDir = os.path.join(dirName, '..', 'results', 'evalAll')
     if not os.path.exists(evalResultDir):
         os.makedirs(evalResultDir)
     resultLoc = os.path.join(evalResultDir, fileName + '.pkl')
-    saveToPickle(resultDF, resultLoc)
+    # saveToPickle(resultDF, resultLoc)
+    resultDF = loadFromPickle(resultLoc)
 
     # resultDF = loadFromPickle(resultLoc)
     print(resultDF)
 
-    ax = sns.lineplot(x="episode", y="meanReward", hue="person", style="person", ci='sd', data=resultDF.reset_index())
-    plt.suptitle('Gym-Mujoco: HalfCheetah-v2 with DDPG')
+    ax = sns.lineplot(x="timeStep", y="meanReward", hue="person", style="person", ci='sd', data=resultDF.reset_index())
+    plt.suptitle('Gym-Mujoco: Ant-v2 with DDPG')
     plt.xlabel('Episode ID')
     plt.savefig(os.path.join(evalResultDir, fileName))
     plt.show()

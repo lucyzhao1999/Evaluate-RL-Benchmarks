@@ -48,8 +48,8 @@ class EvaluateDDPG:
 
 
 def main():
-    env_name = 'HalfCheetah-v2'
-    fileName = 'HalfCheetah'
+    env_name = 'Swimmer-v2'
+    fileName = 'Swimmer'
 
     hyperparamDict = dict()
     hyperparamDict['actorHiddenLayersWidths'] = [256, 256] #[400, 300]
@@ -87,8 +87,8 @@ def main():
     env = gym.make(env_name)
 
     independentVariables = dict()
-    independentVariables['person'] = ['Phil']
-    independentVariables['seed'] = [1, 2, 4]
+    independentVariables['person'] = ['Lucy', 'Martin', 'Phil']
+    independentVariables['seed'] = [1, 2, 3, 4, 5]
     independentVariables['episode'] = list(range(10, 1010, 10))
 
     evaluate = EvaluateDDPG(hyperparamDict, env, fileName)
@@ -109,7 +109,7 @@ def main():
     print(resultDF)
 
     ax = sns.lineplot(x="episode", y="meanReward", hue="person", style="person", ci='sd', data=resultDF.reset_index())
-    plt.suptitle('Gym-Mujoco: HalfCheetah-v2 with DDPG')
+    plt.suptitle('Gym-Mujoco: Swimmer-v2 with DDPG')
     plt.xlabel('Episode ID')
     plt.savefig(os.path.join(evalResultDir, fileName))
     plt.show()
