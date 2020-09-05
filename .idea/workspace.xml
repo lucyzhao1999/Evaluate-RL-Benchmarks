@@ -2,55 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e5f2acb-409d-44e6-b196-0afea6c02bfd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.png" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/results/evalAll/HalfCheetah.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_10eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_10eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_10eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_20eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_20eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_20eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_30eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_30eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_30eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_40eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_40eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_40eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_50eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_50eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed1_50eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_10eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_10eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_10eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_20eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_20eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_20eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_30eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_30eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_30eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_40eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_40eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_40eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_50eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_50eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed2_50eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_10eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_10eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_10eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_20eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_20eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_20eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_30eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_30eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_30eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_40eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_40eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_40eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_50eps.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_50eps.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/HalfCheetah_Phil_seed4_50eps.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddpg/results/models/checkpoint" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" beforeDir="false" afterPath="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -130,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Phil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1015">
-              <caret line="437" column="57" lean-forward="true" selection-start-line="437" selection-start-column="57" selection-end-line="437" selection-end-column="57" />
+            <state relative-caret-position="111">
+              <caret line="151" column="29" lean-forward="true" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -175,6 +126,7 @@
       <find>chkpt_dir</find>
       <find>HalfCheetah</find>
       <find>Martin</find>
+      <find>Saver</find>
     </findStrings>
     <replaceStrings>
       <replace>hyperparamDict</replace>
@@ -216,12 +168,12 @@
         <option value="$PROJECT_DIR$/ddpg/exec/parallelRunHalfCheetah.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/parallelRunAnt.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/runDDPG_halfCheetah.py" />
-        <option value="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_Ant.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/runDDPG_swimmer.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/parallelRunSwimmer.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_swimmer.py" />
         <option value="$PROJECT_DIR$/ddpg/exec/evaluateDDPG_halfCheetah.py" />
+        <option value="$PROJECT_DIR$/ddpg/src/ddpg_Phil.py" />
       </list>
     </option>
   </component>
@@ -438,12 +390,12 @@
       <workItem from="1597340639297" duration="15227000" />
       <workItem from="1597602056437" duration="4215000" />
       <workItem from="1597932087124" duration="22560000" />
-      <workItem from="1598680799947" duration="15332000" />
+      <workItem from="1598680799947" duration="15916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57334000" />
+    <option name="totallyTimeSpent" value="57918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,6 +408,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49937108" visible="true" weight="0.20663811" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -738,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ddpg/src/ddpg_Phil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1015">
-          <caret line="437" column="57" lean-forward="true" selection-start-line="437" selection-start-column="57" selection-end-line="437" selection-end-column="57" />
+        <state relative-caret-position="111">
+          <caret line="151" column="29" lean-forward="true" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

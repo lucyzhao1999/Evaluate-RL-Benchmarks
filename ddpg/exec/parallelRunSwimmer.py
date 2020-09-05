@@ -45,7 +45,7 @@ def main():
     excuteCodeParallel = ExcuteCodeOnConditionsParallel(fileName, numSample, numCpuToUse)
     print("start")
 
-    people = ['Lucy', 'Martin', 'Phil']
+    people = ['Martin', 'Phil']
     seedList = [1, 2, 3, 4, 5]
 
     conditionLevels = [(person, seed) for person in people for seed in seedList]

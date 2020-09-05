@@ -79,7 +79,7 @@ class Actor(object):
 
         self.build_network()
         self.params = tf.trainable_variables(scope=self.name)
-        self.saver = tf.train.Saver()
+        self.saver = tf.train.Saver(max_to_keep=None)
 
         self.unnormalized_actor_gradients = tf.gradients(
             self.mu, self.params, -self.action_gradient)
@@ -155,7 +155,7 @@ class Critic(object):
         self.sess = sess
         self.build_network()
         self.params = tf.trainable_variables(scope=self.name)
-        self.saver = tf.train.Saver()
+        self.saver = tf.train.Saver(max_to_keep=None)
         self.checkpoint_file = os.path.join(self.chkpt_dir, name + '_ddpg.ckpt')
 
         self.optimize = tf.train.AdamOptimizer(self.lr).minimize(self.loss)
