@@ -19,8 +19,8 @@ import json
 def main():
     debug = 1
     if debug:
-        person = 'Phil'
-        seed = 4
+        person = 'Lucy'
+        seed = 0
     else:
         print(sys.argv)
         condition = json.loads(sys.argv[1])
