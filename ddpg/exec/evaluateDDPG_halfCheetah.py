@@ -49,7 +49,6 @@ class EvaluateDDPG:
 
 def main():
     env_name = 'HalfCheetah-v2'
-    fileName = 'HalfCheetah'
 
     hyperparamDict = dict()
     hyperparamDict['actorHiddenLayersWidths'] = [256, 256] #[400, 300]
@@ -91,6 +90,9 @@ def main():
     independentVariables['seed'] = [1, 2, 4]
     independentVariables['episode'] = list(range(10, 1010, 10))
 
+    fileName = 'HalfCheetah_noiseInit{}minVar{}decayStart{}'.format(hyperparamDict['noiseInitVariance'],
+                                                                    hyperparamDict['minVar'],
+                                                                    hyperparamDict['noiseDecayStartStep'])
     evaluate = EvaluateDDPG(hyperparamDict, env, fileName)
 
     levelNames = list(independentVariables.keys())

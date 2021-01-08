@@ -28,7 +28,6 @@ def main():
         seed = int(condition['seed'])
 
     env_name = 'HalfCheetah-v2'
-    fileName = 'HalfCheetah'
 
     hyperparamDict = dict()
     hyperparamDict['actorHiddenLayersWidths'] = [256, 256] #[400, 300]
@@ -63,9 +62,18 @@ def main():
     hyperparamDict['normalizeEnv'] = False
     hyperparamDict['modelSaveRate'] = 10 #eps
 
+    # hyperparamDict['noiseInitVariance'] = 1, 2
+    # hyperparamDict['noiseDecayStartStep'] = 1000, 10000
+    # hyperparamDict['minVar'] = .01, .1
+
     modelDir = os.path.join(dirName, '..', 'results', 'models')
     if not os.path.exists(modelDir):
         os.makedirs(modelDir)
+
+    fileName = 'HalfCheetah_noiseInit{}minVar{}decayStart{}'.format(hyperparamDict['noiseInitVariance'],
+                                                                    hyperparamDict['minVar'],
+                                                                    hyperparamDict['noiseDecayStartStep'])
+
     hyperparamDict['modelSavePathLucy'] = os.path.join(modelDir, fileName + '_Lucy_seed'+ str(seed) + '_')
     hyperparamDict['modelSavePathPhil'] = os.path.join(modelDir, fileName + '_Phil_seed'+ str(seed)+ '_')
     hyperparamDict['modelSavePathMartin'] = os.path.join(modelDir, fileName + '_Martin_seed'+ str(seed)+ '_')
