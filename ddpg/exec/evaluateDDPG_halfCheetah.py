@@ -105,10 +105,10 @@ def main():
     resultLoc = os.path.join(evalResultDir, fileName + '.pkl')
     saveToPickle(resultDF, resultLoc)
 
-    # resultDF = loadFromPickle(resultLoc)
+    # resultDF = pd.read_pickle(resultLoc)
     print(resultDF)
 
-    ax = sns.lineplot(x="episode", y="meanReward", hue="person", style="person", ci='sd', data=resultDF.reset_index())
+    ax = sns.lineplot(x="timeStep", y="meanReward", hue="person", style="person", ci='sd', data=resultDF.reset_index())
     plt.suptitle('Gym-Mujoco: HalfCheetah-v2 with DDPG')
     plt.xlabel('Episode ID')
     plt.savefig(os.path.join(evalResultDir, fileName))
